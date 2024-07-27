@@ -1,0 +1,14 @@
+# service-frontend.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: hrm-frontend
+spec:
+  selector:
+    app: hrm-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: LoadBalancer
+

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hrm-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hrm-backend
+  template:
+    metadata:
+      labels:
+        app: hrm-backend
+    spec:
+      containers:
+        - name: hrm-backend
+          image: jaayshaun/lab3-backend:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DATABASE_URL
+              value: "postgresql://hrm_user:hrm_password@postgres:5432/hrm_db"
+

@@ -1,0 +1,23 @@
+# deployment-frontend.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hrm-frontend
+  labels:
+    app: hrm-frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hrm-frontend
+  template:
+    metadata:
+      labels:
+        app: hrm-frontend
+    spec:
+      containers:
+      - name: hrm-frontend
+        image: jaayshaun/lab3-frontend:latest
+        ports:
+        - containerPort: 3000
+
