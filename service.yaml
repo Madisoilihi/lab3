@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hrm-backend
+spec:
+  type: ClusterIP
+  selector:
+    app: hrm-backend
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hrm-frontend
+spec:
+  type: LoadBalancer
+  selector:
+    app: hrm-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+
